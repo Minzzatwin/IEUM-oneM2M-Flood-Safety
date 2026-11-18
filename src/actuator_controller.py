@@ -14,7 +14,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 CSE_BASE_URL = os.environ.get(
     "IEUM_CSE_BASE_URL",
     "https://example.invalid/mn-cse",
-)
+).rstrip("/")
 AE_ID = "CEdgeAE"
 BARRIER_URL = f"{CSE_BASE_URL}/EdgeAE/cnt_barrier_control/la"
 WARNING_URL = f"{CSE_BASE_URL}/EdgeAE/cnt_warning_control/la"
@@ -66,6 +66,15 @@ def render_device_dashboard(barrier_data, warning_data, detour_data):
     if raw_barrier == "CLOSE":
         manual_lock_active = True
 
+    # Ensure English-only VMS display message regardless of upstream locale strings
+    if not w_msg.isascii():
+        if raw_barrier == "CLOSE" or manual_lock_active or risk_lvl.upper() in ["DANGER", "EMERGENCY"]:
+            w_msg = "ENTRY PROHIBITED: FLOOD RISK"
+        elif risk_lvl.upper() == "CAUTION":
+            w_msg = "FLOOD CAUTION"
+        else:
+            w_msg = "Normal Traffic Flow"
+
     print("\n" + "="*65)
     print(f"  🚧 [Field Edge Actuator Status Monitor] ({now_str})")
     print("="*65)
@@ -83,9 +92,9 @@ def render_device_dashboard(barrier_data, warning_data, detour_data):
     # Display warning light and siren status
     if led_state or buzzer_state:
         print(f"  ▶ Warning Light / Siren : LED=[{led_state or 'OFF'}] | BUZZER=[{buzzer_state or 'OFF'}]")
-    elif risk_lvl in ["DANGER", "EMERGENCY", "Danger", "Emergency", "위험", "긴급"]:
+    elif risk_lvl in ["DANGER", "EMERGENCY", "Danger", "Emergency"]:
         print(f"  ▶ Warning Light / Siren : 🚨 [ RED FLASHING + SIREN ON ] ({w_action})")
-    elif risk_lvl in ["CAUTION", "Caution", "주의"]:
+    elif risk_lvl in ["CAUTION", "Caution"]:
         print(f"  ▶ Warning Light / Siren : ⚠️ [ YELLOW FLASHING + ALERT ] ({w_action})")
     else:
         print(f"  ▶ Warning Light / Siren : ⚪ [ OFF / STANDBY ] ({w_action})")
@@ -127,7 +136,6 @@ def main():
 
         if updated:
             render_device_dashboard(latest_data["barrier"], latest_data["warning"], latest_data["detour"])
-
         time.sleep(POLL_INTERVAL)
 
 if __name__ == "__main__":

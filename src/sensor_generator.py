@@ -16,7 +16,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 CSE_BASE_URL = os.environ.get(
     "IEUM_CSE_BASE_URL",
     "https://example.invalid/mn-cse",
-)
+).rstrip("/")
 AE_NAME = "SensorAE"
 AE_ID = "CSensorAE"               # AE-ID for X-M2M-Origin authentication
 CNT_NAME = "cnt_water_level"
