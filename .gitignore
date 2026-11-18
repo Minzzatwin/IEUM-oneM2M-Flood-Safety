@@ -1,0 +1,11 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+ieum_edge_state.json
+.pytest_cache/
+.vscode/
+evidence/raw/
