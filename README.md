@@ -13,6 +13,12 @@ This is a software prototype. Physical sensors, barriers, LEDs, and buzzers are 
 
 ## Architecture
 
+### Current Implemented Architecture
+
+![Current implemented architecture: virtual sensor to MN-CSE, local risk analysis, oneM2M output containers, and terminal actuator monitor](docs/images/architecture-current-system.svg)
+
+This diagram shows the submitted prototype flow. The sensor generator, risk engine, and actuator monitor run as Python processes on the local PC and exchange data with the ACME MN-CSE through the oneM2M HTTP API.
+
 ### Target Architecture: Option C
 
 ![Option C architecture: oneM2M IN-CSE, MN-CSE, MEC platform, risk analysis, control, and field devices](docs/images/architecture-option-c.svg)
