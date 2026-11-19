@@ -15,13 +15,13 @@ This is a software prototype. Physical sensors, barriers, LEDs, and buzzers are 
 
 ### Target Architecture: Option C
 
-![Option C architecture: oneM2M IN-CSE, MN-CSE, MEC platform, risk analysis, control, and field devices](docs/images/architecture-option-c.png)
+![Option C architecture: oneM2M IN-CSE, MN-CSE, MEC platform, risk analysis, control, and field devices](docs/images/architecture-option-c.svg)
 
 This diagram represents the target Option C architecture described in the project materials. Dashed or planned components are not claims of completed implementation.
 
 ### Target Multi-site Expansion
 
-![Multi-site architecture: cloud IN-CSE connected to multiple edge sites](docs/images/architecture-multi-site.png)
+![Multi-site architecture: cloud IN-CSE connected to multiple edge sites](docs/images/architecture-multi-site.svg)
 
 This diagram illustrates a planned multi-site expansion in which each edge site has its own MN-CSE and local analysis/control components. The submitted code and verified tests cover the documented prototype scope, not full multi-site deployment.
 

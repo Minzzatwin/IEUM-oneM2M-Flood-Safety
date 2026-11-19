@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <style>
+    .title { font: bold 34px Arial, sans-serif; fill: #183447; }
+    .subtitle { font: 20px Arial, sans-serif; fill: #5d6d78; }
+    .section { font: bold 21px Arial, sans-serif; fill: #ffffff; }
+    .label { font: bold 21px Arial, sans-serif; fill: #183447; }
+    .small { font: 17px Arial, sans-serif; fill: #5d6d78; }
+    .note { font: bold 19px Arial, sans-serif; fill: #009b98; }
+    .box { fill: #eaf5f5; stroke: #009b98; stroke-width: 2; }
+    .area { fill: #f5f9fa; stroke: #b7c8cf; stroke-width: 2; }
+    .edge { stroke: #183447; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .dashed { stroke: #788891; stroke-width: 3; stroke-dasharray: 10 8; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#183447"/></marker>
+  </defs>
+  <text x="60" y="58" class="title">System Architecture - Multi-site Integration</text>
+  <text x="60" y="92" class="subtitle">Local risk decisions and control at each site, with centralized cloud monitoring</text>
+  <rect x="60" y="125" width="1480" height="115" class="area"/>
+  <text x="85" y="163" class="label">CLOUD</text>
+  <rect x="520" y="145" width="410" height="70" class="box"/>
+  <text x="725" y="176" text-anchor="middle" class="label">oneM2M IN-CSE</text>
+  <text x="725" y="200" text-anchor="middle" class="small">Site-level status and event aggregation</text>
+  <rect x="1080" y="145" width="350" height="70" class="box"/>
+  <text x="1255" y="176" text-anchor="middle" class="label">Cloud IN-AE</text>
+  <text x="1255" y="200" text-anchor="middle" class="small">Comparison, alerts, and dashboard</text>
+  <path d="M930 180 L1080 180" class="edge"/>
+  <text x="1005" y="166" text-anchor="middle" class="small">Mca</text>
+  <path d="M725 240 L725 300" class="edge"/>
+  <text x="760" y="275" class="small">Mcc - site registration and data sharing</text>
+  <rect x="60" y="300" width="460" height="430" class="area"/>
+  <rect x="60" y="300" width="460" height="42" fill="#009b98"/>
+  <text x="82" y="328" class="section">EDGE A - Underpass A</text>
+  <rect x="110" y="370" width="360" height="92" class="box"/>
+  <text x="290" y="408" text-anchor="middle" class="label">MN-CSE (MEC app)</text>
+  <text x="290" y="436" text-anchor="middle" class="small">Local data and event management</text>
+  <rect x="110" y="500" width="165" height="105" class="box"/>
+  <text x="192" y="538" text-anchor="middle" class="label">MEC Platform</text>
+  <text x="192" y="568" text-anchor="middle" class="small">Sensor service</text>
+  <rect x="305" y="500" width="165" height="105" class="box"/>
+  <text x="387" y="538" text-anchor="middle" class="label">MN-AE</text>
+  <text x="387" y="568" text-anchor="middle" class="small">Risk and control</text>
+  <rect x="125" y="650" width="330" height="55" class="box"/>
+  <text x="290" y="684" text-anchor="middle" class="label">Field sensors and simulator</text>
+  <path d="M290 370 L290 342" class="edge"/>
+  <path d="M290 462 L192 500" class="edge"/>
+  <path d="M290 462 L387 500" class="edge"/>
+  <path d="M192 605 L290 650" class="edge"/>
+  <rect x="570" y="300" width="460" height="430" class="area"/>
+  <rect x="570" y="300" width="460" height="42" fill="#183447"/>
+  <text x="592" y="328" class="section">EDGE B - Underpass B</text>
+  <rect x="620" y="370" width="360" height="92" class="area"/>
+  <text x="800" y="408" text-anchor="middle" class="label">MN-CSE (MEC app)</text>
+  <text x="800" y="436" text-anchor="middle" class="small">Same local event-management pattern</text>
+  <rect x="620" y="500" width="165" height="105" class="area"/>
+  <text x="702" y="538" text-anchor="middle" class="label">MEC Platform</text>
+  <text x="702" y="568" text-anchor="middle" class="small">Sensor service</text>
+  <rect x="815" y="500" width="165" height="105" class="area"/>
+  <text x="897" y="538" text-anchor="middle" class="label">MN-AE</text>
+  <text x="897" y="568" text-anchor="middle" class="small">Risk and control</text>
+  <rect x="635" y="650" width="330" height="55" class="area"/>
+  <text x="800" y="684" text-anchor="middle" class="label">Extend with the same site pattern</text>
+  <path d="M800 370 L800 342" class="dashed"/>
+  <path d="M800 462 L702 500" class="dashed"/>
+  <path d="M800 462 L897 500" class="dashed"/>
+  <rect x="1080" y="300" width="460" height="430" class="area"/>
+  <rect x="1080" y="300" width="460" height="42" fill="#183447"/>
+  <text x="1102" y="328" class="section">EDGE C - Underpass C</text>
+  <rect x="1130" y="370" width="360" height="92" class="area"/>
+  <text x="1310" y="408" text-anchor="middle" class="label">MN-CSE (MEC app)</text>
+  <text x="1310" y="436" text-anchor="middle" class="small">Same local event-management pattern</text>
+  <rect x="1130" y="500" width="165" height="105" class="area"/>
+  <text x="1212" y="538" text-anchor="middle" class="label">MEC Platform</text>
+  <text x="1212" y="568" text-anchor="middle" class="small">Sensor service</text>
+  <rect x="1325" y="500" width="165" height="105" class="area"/>
+  <text x="1407" y="538" text-anchor="middle" class="label">MN-AE</text>
+  <text x="1407" y="568" text-anchor="middle" class="small">Risk and control</text>
+  <rect x="1145" y="650" width="330" height="55" class="area"/>
+  <text x="1310" y="684" text-anchor="middle" class="label">Extend with the same site pattern</text>
+  <path d="M1310 370 L1310 342" class="dashed"/>
+  <path d="M1310 462 L1212 500" class="dashed"/>
+  <path d="M1310 462 L1407 500" class="dashed"/>
+  <text x="80" y="790" class="note">Cloud connectivity may be interrupted while local site control remains available.</text>
+  <text x="80" y="825" class="small">Edge B and Edge C show planned expansion patterns; they are not claims of deployed sites.</text>
+</svg>
