@@ -366,6 +366,9 @@ else:
 
     risk_level = first(
         risk,
+        "riskLevel",
+        "observed_risk_level",
+        "assessment",
         "risk_level",
         "risk",
         "level",
