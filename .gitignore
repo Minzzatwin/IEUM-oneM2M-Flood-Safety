@@ -9,3 +9,4 @@ ieum_edge_state.json
 .pytest_cache/
 .vscode/
 evidence/raw/
+dashboard/.env

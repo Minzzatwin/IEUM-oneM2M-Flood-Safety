@@ -52,3 +52,26 @@ No local video file was supplied. Video-based claims are therefore not independe
 - Physical barrier, LED, or buzzer operation.
 - Machine-learning model inference.
 - Current live rerun against a Hosted Sandbox.
+
+## Dashboard Integration Tests
+
+The following dashboard checks are supported by available integration evidence:
+
+| Check | Result |
+|---|---|
+| Streamlit dashboard language | Display confirmed in English |
+| MEC Service API connectivity check | Confirmed to work from the dashboard |
+| Hosted MN-CSE connectivity check | Confirmed to work from the dashboard |
+| `flood` sensor scenario | Five stages published: Normal, Caution, Danger, Emergency, and Recovery |
+| `flood` sensor ContentInstance POST | Five stage requests returned HTTP 201 |
+| `flood` latest ContentInstance retrieval | Retrieval checks returned HTTP 200 |
+| `rain` sensor scenario | Five stages published and latest retrieval verified successfully |
+| `river` sensor scenario | Partial success; some requests encountered read timeouts |
+| `missing` sensor scenario | Unverified; no successful execution log is available |
+| Continuous `--watch` mode | Encountered read timeouts; further validation is required |
+
+These checks distinguish the dashboard and Hosted Sandbox evidence from historical local ACME tests:
+
+- Historical local ACME tests demonstrated CIN creation/retrieval and control-record storage on a local MN-CSE.
+- The dashboard integration checks verify browser display and connection behavior against the relevant services.
+- Risk-history rows, every dashboard field, and physical control-record operation should not be considered fully validated unless additional test output is supplied.

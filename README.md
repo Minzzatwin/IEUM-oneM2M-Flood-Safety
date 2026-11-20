@@ -152,6 +152,40 @@ py .\ieum_edge_integrated.py --watch --state-file ieum_edge_state.json
 
 The standalone companion scripts can also be run directly, but their source contains fixed connection settings. The integrated modes are the intended way to apply the configured CSE base URL without modifying those original files.
 
+## Monitoring Dashboard
+
+The IEUM Streamlit dashboard is a read-only monitoring interface for the locally executed prototype. It displays MEC application and platform status, MEC Service API reachability, Hosted MN-CSE connectivity, latest sensor measurements, available risk assessments, Edge control records, timestamps, and risk history.
+
+The dashboard does not calculate flood risk and does not issue actuator commands. The rule-based calculation and control-record writing remain the responsibility of `src/ieum_edge_integrated.py`.
+
+Install the dashboard dependencies from the repository root:
+
+```powershell
+py -m pip install -r requirements.txt
+```
+
+Set the dashboard and CSE environment variables in the PowerShell session. The dashboard and the integrated edge script use `IEUM_CSE_BASE_URL`; it does not automatically load `.env` files.
+
+```powershell
+$env:IEUM_CSE_BASE_URL = "https://example.invalid/mn-cse"
+$env:IEUM_VERIFY_TLS = "true"
+$env:IEUM_CSE_ORIGIN = "CAdmin"
+$env:IEUM_MEC_SANDBOX_PREFIX = "https://example.invalid"
+$env:IEUM_MEC_PLATFORM = "mep1"
+```
+
+Run the dashboard from the repository root:
+
+```powershell
+py -m streamlit run dashboard\dashboard.py
+```
+
+Open `http://localhost:8501`. The dashboard is executed on the user's local PC and is not claimed as a MEC-Host deployment.
+
+![Sanitized IEUM dashboard overview showing connection, sensor, and control-record sections](docs/images/dashboard-overview.png)
+
+*Sanitized dashboard overview; the visible control values are stored records and do not confirm physical actuation.*
+
 ## Verification Status
 
 Historical local ACME records show:
@@ -183,6 +217,7 @@ See [docs/test-results.md](docs/test-results.md) for evidence boundaries.
 - [Demo scenario](docs/demo-scenario.md)
 - [MEC Sandbox notes](docs/mec-sandbox.md)
 - [Limitations and future work](docs/limitations-and-future-work.md)
+- [Dashboard integration](docs/dashboard-integration.md)
 - [Evidence policy](evidence/README.md)
 
 ## Team

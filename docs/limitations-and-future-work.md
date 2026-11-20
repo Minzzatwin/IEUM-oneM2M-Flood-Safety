@@ -30,6 +30,18 @@ The integrated engine persists state, but the current risk engine maintains one 
 
 The companion scripts contain fixed connection values and sandbox-oriented TLS settings. Public deployment requires environment-based configuration, certificate verification, and secret handling.
 
+### Local dashboard deployment
+
+The Streamlit dashboard runs locally on the user's PC. Deployment of the dashboard or Python risk engine inside a MEC Host has not been verified.
+
+### Read-only dashboard
+
+The dashboard is read-only. It does not perform risk calculation or send barrier, warning, or detour commands.
+
+### Multi-site operation
+
+Multiple independent edge sites and IN-CSE synchronization remain unverified.
+
 ## Future Work
 
 - Verify the current Hosted Sandbox Resource Tree and run the complete pipeline again.

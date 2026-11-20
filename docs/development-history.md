@@ -43,3 +43,9 @@ The supplied records do not independently verify IN-CSE synchronization or Pytho
 ## 6. Current Submission Boundary
 
 The source files in `src/` are copied from the current `project_context` files. Historical versions in the Notion export are development evidence, not additional production entry points. They are not copied into the executable source tree.
+
+## 7. Streamlit Monitoring Dashboard
+
+After the initial CLI-based prototype and terminal actuator monitor, the project added a separate Streamlit monitoring dashboard under `dashboard/`. It provides read-only browser views of MEC status and Hosted oneM2M data.
+
+`cse_client.py` communicates with the Hosted MN-CSE using the oneM2M HTTP API and retrieves latest CINs and risk-history children. `mec_client.py` performs separate MEC Service API checks for application metadata and registered IoT platforms. `dashboard.py` renders these results and does not invoke the risk engine or send actuator commands.

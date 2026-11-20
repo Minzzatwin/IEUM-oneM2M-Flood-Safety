@@ -45,3 +45,12 @@ MN-CSE
 The integrated engine keeps the barrier closed after a close condition or missing input. The actuator monitor also has a local in-memory lock when it observes `CLOSE`. The standalone monitor's lock is not a persistent shared state store; the integrated engine uses a state file.
 
 Physical actuation is outside the verified scope.
+
+## Monitoring Dashboard
+
+The Streamlit dashboard is a read-only monitoring component outside the core risk-processing path. It is executed locally on the user's PC and communicates with two separate services:
+
+- The MEC Service API supplies application/platform and registered-IoT-platform checks.
+- The Hosted MN-CSE supplies latest CIN and risk-history data through the oneM2M HTTP API.
+
+The dashboard retrieves sensor, risk, barrier, warning, and detour CINs; it does not evaluate thresholds or write control records. Those responsibilities remain with `ieum_edge_integrated.py`. The terminal actuator monitor separately displays EdgeAE records but is not connected to physical devices.

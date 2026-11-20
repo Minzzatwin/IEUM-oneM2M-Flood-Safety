@@ -38,6 +38,23 @@ py .\ieum_edge_integrated.py --run-sensor --scenario river
 py .\ieum_edge_integrated.py --run-sensor --scenario missing
 ```
 
+### Terminal 4: Monitoring dashboard
+
+Run the dashboard from the repository root in a separate PowerShell window:
+
+```powershell
+py -m streamlit run dashboard\dashboard.py
+```
+
+Open `http://localhost:8501`. During the flood scenario, use the dashboard to observe whether the latest sensor CIN and available risk/control records appear. The dashboard can show:
+
+- Latest water-level, rainfall, river-level, and rise-rate values.
+- An available risk-level record and its explanation.
+- Available barrier, warning, and detour records.
+- oneM2M creation/update timestamps and retrieved risk-history CINs.
+
+Do not expect the dashboard to confirm physical barrier, LED, or buzzer operation. The dashboard is read-only and only displays stored software records. If a field is empty or unavailable, inspect the raw oneM2M response and resource permissions rather than inferring a result.
+
 ## Expected Software-Level Observations
 
 The intended software flow is:
